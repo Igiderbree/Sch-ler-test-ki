@@ -14,5 +14,7 @@ Die App enthält:
 - Lehrer können Tests erstellen (optional mit KI generiert).
 - Schüler können freigeschaltete Tests abrufen und abgeben.
 - Einfache Auswertung über die OpenAI API (Platzhalter).
+- Nach dem Login landen Benutzer auf einem einfachen Dashboard mit Seitenleiste
+  und Bereichen für "Mein Konto", Benutzerverwaltung und Schülerordner.
 
 Dies ist nur ein grundlegendes Gerüst.

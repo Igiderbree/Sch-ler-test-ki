@@ -13,8 +13,8 @@ app.use(express.json());
 app.use(express.static('public'));
 
 const users = [
-  { username: 'teacher1', password: 'pass123', role: 'teacher' },
-  { username: 'student1', password: 'pass123', role: 'student' }
+  { username: 'teacher1', password: 'pass123', role: 'teacher', grade: null, class: null },
+  { username: 'student1', password: 'pass123', role: 'student', grade: 10, class: '10A' }
 ];
 
 const tests = [];
@@ -23,11 +23,12 @@ let testId = 1;
 app.post('/api/login', (req, res) => {
   const { username, password } = req.body;
   if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
-    return res.json({ role: 'admin' });
+    return res.json({ username: ADMIN_USERNAME, role: 'admin', grade: null, class: null });
   }
   const user = users.find(u => u.username === username && u.password === password);
   if (user) {
-    return res.json({ role: user.role });
+    const { password: _, ...info } = user;
+    return res.json(info);
   }
   res.status(401).json({ error: 'Invalid credentials' });
 });
