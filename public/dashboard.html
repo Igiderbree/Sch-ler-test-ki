@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Menü</h2>
+    <ul>
+      <li><a href="#" data-section="account">Mein Konto</a></li>
+      <li class="admin-only"><a href="#" data-section="users">Benutzer</a></li>
+      <li class="teacher-only"><a href="#" data-section="students">Schüler</a></li>
+    </ul>
+  </div>
+  <div class="content">
+    <div id="account" class="section">
+      <h1>Mein Konto</h1>
+      <p>Benutzername: <span id="accountUsername"></span></p>
+      <p>Rolle: <span id="accountRole"></span></p>
+      <p>Klasse/Jahrgang: <span id="accountClass"></span></p>
+      <form id="accountForm">
+        <input type="email" id="email" placeholder="Neue Email" />
+        <input type="password" id="newPassword" placeholder="Neues Passwort" />
+        <button type="submit">Speichern</button>
+      </form>
+    </div>
+    <div id="users" class="section hidden">
+      <h1>Benutzer Verwaltung (Platzhalter)</h1>
+    </div>
+    <div id="students" class="section hidden">
+      <h1>Schüler Ordner (Platzhalter)</h1>
+    </div>
+  </div>
+  <script src="dashboard.js"></script>
+</body>
+</html>
