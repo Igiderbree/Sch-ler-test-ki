@@ -13,6 +13,7 @@ async function login(event) {
   const message = document.getElementById('message');
   if (res.ok) {
     localStorage.setItem('user', JSON.stringify(data));
+    message.textContent = `Eingeloggt als ${data.role}`;
     window.location.href = '/dashboard.html';
   } else {
     message.textContent = data.error || 'Fehler beim Login';
