@@ -6,12 +6,14 @@ async function login(event) {
   const res = await fetch('/api/login', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ username, password })
+    body: JSON.stringify({ username, password }),
   });
 
   const data = await res.json();
   const message = document.getElementById('message');
+
   if (res.ok) {
+    // Beides behalten: Status anzeigen und ins Dashboard weiterleiten
     localStorage.setItem('user', JSON.stringify(data));
     message.textContent = `Eingeloggt als ${data.role}`;
     window.location.href = '/dashboard.html';
